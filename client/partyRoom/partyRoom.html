@@ -1,0 +1,70 @@
+<template name="partyRoom">
+  <div class="row">
+    <div class="col s12">
+      <h3 class="center-align">{{name}}</h3>
+    </div>
+  </div>
+  {{#if playlistIsEmpty}}
+  {{else}}
+  <div class="row">
+    <div class="col s12">
+      {{#if loadingSong}}
+      <div class="valign-wrapper">
+        <div class="valign preloader-wrapper big active loadingSong">
+          <div class="spinner-layer spinner-blue-only">
+            <div class="circle-clipper left">
+              <div class="circle"></div>
+            </div>
+            <div class="gap-patch">
+              <div class="circle"></div>
+            </div>
+            <div class="circle-clipper right">
+              <div class="circle"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      {{else}}
+      <h3 class="center-align">
+        Playing: {{trackName}} - {{trackTitle}}
+      </h3>
+      {{/if}}
+    </div>
+  </div>
+  {{/if}}
+  <div class="row">
+    <div class="col s12">
+      <h3>Playlist</h3>
+    </div>
+    <ul class="collection">
+      {{#each playlist}} {{> playlistItem}} {{/each}}
+    </ul>
+  </div>
+  <div class="row">
+    <div class="input-field col s8">
+      <input class="validate" id="searchSong" placeholder="Search Song" type="text">
+      <label for="searchSong">Search Song</label>
+    </div>
+    <div class="col s4">
+      <a class="waves-effect waves-light btn-large fullwidth">
+        <i class="mdi-action-search"></i>
+      </a>
+    </div>
+    <div class="col s12">
+      <ul class="collection">
+        {{#each searchedTracks}} {{> searchedItem}} {{/each}}
+      </ul>
+    </div>
+  </div>
+</template>
+
+<template name="searchedItem">
+  <li class="song collection-item">{{user.username}} - {{title}}</li>
+</template>
+
+<template name="playlistItem">
+  <li class="song collection-item">
+    {{user.username}} - {{title}}
+    <i class="small mdi-action-delete right red-text removeItem"></i>
+</li>
+</template>

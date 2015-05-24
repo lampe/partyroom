@@ -1,0 +1,27 @@
+.loadingSong{
+  margin: 0 auto;
+}
+.loading h1
+{
+    font-size: 3.2rem;
+    line-height: 3.62rem;
+
+    margin-top: 15%;
+
+    text-align: center;
+}
+.fullwidth
+{
+    width: 100%;
+    margin-bottom: 5px;
+}
+.roomsTitle
+{
+    text-align: center;
+}
+.addRoom
+{
+    position: absolute;
+    right: 10%;
+    bottom: 10%;
+}
